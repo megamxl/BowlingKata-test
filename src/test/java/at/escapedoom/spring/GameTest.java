@@ -47,4 +47,27 @@ public class GameTest {
 
         Assert.assertEquals(9, gameTest.score());
     }
+
+    @Test
+    public void testThirdRollInFirstNineRound(){
+        Game gameTest = new Game();
+
+        gameTest.roll(5);
+
+        Assert.assertEquals(5, gameTest.score());
+
+        gameTest.roll(2);
+
+        Assert.assertEquals(7, gameTest.score());
+
+        gameTest.roll(1);
+
+        //Testen ob der eh nicht in die erste runde geschmissen wird
+
+    }
+
+    @Test
+    public void testThirdRollInLastRound(){
+
+    }
 }
