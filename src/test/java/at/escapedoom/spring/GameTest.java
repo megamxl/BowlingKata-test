@@ -62,12 +62,26 @@ public class GameTest {
 
         gameTest.roll(1);
 
+        Assert.assertEquals(8, gameTest.score());
+
         //Testen ob der eh nicht in die erste runde geschmissen wird
 
     }
 
     @Test
     public void testThirdRollInLastRound(){
+        Game gameTest = new Game();
 
+        gameTest.roll(5);
+
+        Assert.assertEquals(5, gameTest.score());
+
+        gameTest.roll(2);
+
+        Assert.assertEquals(7, gameTest.score());
+
+        gameTest.roll(1);
+
+        Assert.assertEquals(8, gameTest.score());
     }
 }
