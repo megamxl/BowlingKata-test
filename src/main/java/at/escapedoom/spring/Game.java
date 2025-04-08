@@ -15,7 +15,10 @@ public class Game {
     }
 
     void roll(int pins) {
-        if (curFramePart == 0) scores[curFrame].split1 += pins;
+        if (curFramePart == 0) {
+            scores[curFrame].split1 += pins;
+            curFramePart ++;
+        }
         else {
             scores[curFrame].split2 += pins;
             curFrame++;

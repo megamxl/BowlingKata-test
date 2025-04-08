@@ -84,4 +84,12 @@ public class GameTest {
 
         Assert.assertEquals(8, gameTest.score());
     }
+
+    @Test
+    public void testCurFrameFoo() {
+        Game gameTest = new Game();
+        gameTest.roll(5);
+
+        Assert.assertEquals(gameTest.curFramePart,1);
+    }
 }
