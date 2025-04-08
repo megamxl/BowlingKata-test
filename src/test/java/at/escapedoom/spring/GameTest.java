@@ -3,6 +3,9 @@ package at.escapedoom.spring;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class GameTest {
 
 
@@ -53,36 +56,27 @@ public class GameTest {
         Game gameTest = new Game();
 
         gameTest.roll(5);
-
         Assert.assertEquals(5, gameTest.score());
 
         gameTest.roll(2);
-
         Assert.assertEquals(7, gameTest.score());
 
         gameTest.roll(1);
-
-        Assert.assertEquals(8, gameTest.score());
-
-        //Testen ob der eh nicht in die erste runde geschmissen wird
-
+        Assert.assertEquals(0, gameTest.scores[0].split3 );
+        Assert.assertEquals(1, gameTest.scores[1].split1);
     }
 
     @Test
     public void testThirdRollInLastRound(){
         Game gameTest = new Game();
 
+        for (int i = 0; i < 20; i++) {
+            int x = new Random().nextInt(10 - 1 + 1) + 1;
+            gameTest.roll(x);
+        }
+
         gameTest.roll(5);
-
-        Assert.assertEquals(5, gameTest.score());
-
-        gameTest.roll(2);
-
-        Assert.assertEquals(7, gameTest.score());
-
-        gameTest.roll(1);
-
-        Assert.assertEquals(8, gameTest.score());
+        Assert.assertEquals(5, gameTest.scores[9].split3);
     }
 
     @Test
@@ -91,5 +85,12 @@ public class GameTest {
         gameTest.roll(5);
 
         Assert.assertEquals(gameTest.curFramePart,1);
+    }
+
+    private void printScores(Game gameTest){
+
+        Arrays.stream(gameTest.scores).forEach( s -> {
+            System.out.println(s.split1 +"-"+ s.split2+"-"+s.split3);
+        });
     }
 }
