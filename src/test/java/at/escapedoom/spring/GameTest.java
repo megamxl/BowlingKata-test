@@ -21,4 +21,30 @@ public class GameTest {
         Game gameTest = new Game();
          Assert.assertTrue(gameTest.score() == 0);
     }
+
+    @Test
+    public void testFirstRoll() {
+        Game gameTest = new Game();
+
+        gameTest.roll(7);
+
+        Assert.assertEquals(7, gameTest.score());
+
+        gameTest.roll(2);
+
+        Assert.assertEquals(9, gameTest.score());
+    }
+
+    @Test
+    public void testFirstTwoRolls() {
+        Game gameTest = new Game();
+
+        gameTest.roll(7);
+
+        Assert.assertEquals(7, gameTest.score());
+
+        gameTest.roll(2);
+
+        Assert.assertEquals(9, gameTest.score());
+    }
 }
